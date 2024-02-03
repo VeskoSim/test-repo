@@ -1,5 +1,10 @@
 name: GitHub Actions Demo
-on: [push]
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -7,15 +12,19 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: echo "I am building the application..."
- run:
-   runs-on: ubuntu-latest
-   steps:
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: echo "I am testing the applicaton..."
+      - run: echo "I am testing the application..."
+
   deploy:
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest
     steps:
-      - name: Chek out repository code
-        uses: action/checkout@v4
+      - name: Check out repository code
+        uses: actions/checkout@v4
       - run: echo "I am deploying the application..."
+      - name: Create dependencies
+        run: echo "Creating dependencies..."
