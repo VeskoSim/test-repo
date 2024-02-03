@@ -1,0 +1,21 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "I am building the application..."
+ run:
+   runs-on: ubuntu-latest
+   steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "I am testing the applicaton..."
+  deploy:
+    runs-on: ubuntu_latest
+    steps:
+      - name: Chek out repository code
+        uses: action/checkout@v4
+      - run: echo "I am deploying the application..."
