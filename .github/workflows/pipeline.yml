@@ -1,9 +1,12 @@
 name: Terraform AWS Deployment
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-   deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     env:
@@ -31,6 +34,10 @@ jobs:
 
       - name: Apply Terraform changes
         run: terraform apply -auto-approve
-      
+
       - name: Clean up Terraform
-        run: terraform destroy -auto-approve
+        run: |
+          # Note: This step is for cleanup purposes. It will destroy the infrastructure after deployment.
+          # Use it carefully, and consider removing it if you want to keep the infrastructure.
+          terraform destroy -auto-approve
+
