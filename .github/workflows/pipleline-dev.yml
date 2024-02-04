@@ -1,6 +1,9 @@
 name: Terraform AWS Deployment
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
    deploy:
